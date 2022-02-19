@@ -34,7 +34,7 @@ nodeOutQueryTest.txt & nodeInQueryTest.txt -- Test data for node out (in)-flow q
         First column: ID of from (to) node
         Second column: Accumulated weight of the node
 
-##How to run
+## How to run
 
 Suppose you've already cloned the respository and start from the `Auxo` directory and preprocessed the data set in to the format above
 You just need:
