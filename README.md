@@ -1,14 +1,16 @@
 # Auxo: A Time and Memory Efficient Structure for Scalable Graph Stream Summarization
 ## Introduction
 
-A graph stream refers to an unbounded, time involving edge stream, in which, each weighted edge has two endpoints and a timestamp, forming a dynamic graph changing rapidly over time. Graph streams have been widely generated in social networks, cyber security, and data center. Due to its huge volume and high update speed, recent research mainly focus on graph stream summarization to achieve linear memory usage and constant time cost per edge insertion with slight accuracy sacrifice. However, when faced with an unbounded graph stream, all the existing work either fail to support a scalable graph stream summarization or are not time and memory efficient. To address this issue, we proposed Auxo, a time and memory efficient structure for scalable graph stream summarization. Auxo reduces the time cost from O(N) to O(logN) scale and saves the memory by a ratio of (logN-2)/b. Further experiments show that Auxo outperformance the basic idea by one to two orders of magnitude for time cost on insertion and queries and saves 10% memory on average. In addition, we propose compacted Auxo to increase memory utilization.  
+A graph stream refers to a time sequentially updating stream of edges, forming a huge and fast-evolving graph. The vast volume and high update speed of a graph stream bring stringent requirements for the data management structure, including sublinear space cost, constant time cost for updating, and scalability of the structure. Existing designs summarize a graph stream by leveraging a hash-based compressed matrix and representing an edge using its fingerprint to achieve practical storage for a graph stream with a known upper bound of data volume. However, they fail to support the dynamically extending of a graph stream.
+
+To address this issue, we propose a novel prefix embedded tree (PET) which leverages binary logarithmic search and common binary prefixes embedding to provide a space/time efficient scalable tree structure. PET reduces the item insert/query time from $O(N)$ to $O(logN)$ as well as reducing the total storage cost in a $logN$ scale, where $N$ is the scale of the dataset. To further improve the memory utilization of PET during scaling, we further propose a proportionally incremental strategy (PIS). Based on the PET and PIS, we propose Auxo and compacted Auxo. We conduct comprehensive experiments on large-scale real-world datasets to evaluate the performance of this design. Results show that Auxo significantly reduces the insert and query time by one to two orders of magnitude compared to existing designs. Meanwhile, Auxo achieves efficiently and economically structure-scaling.  
 
 
 ## About the source code and data sets
 
-We have implemented the basic idea GSS_Chain (GSS_Chain.h), Auxo (Auxo.h), and compacted Auxo (ComAuxo.h) in C++. We complete the code on Linux 5.4.0-99-generic and compile successfully using gcc 7.5.0. The hash function we use is in the file querysupportstruct.h.
+We have implemented the basic idea GSS_Chain (GSS_Chain.cpp), Auxo (Auxo.cpp), and compacted Auxo (ComAuxo.cpp) in C++. We complete the code on Linux 5.4.0-99-generic and compile successfully using gcc 7.5.0. The hash function we use is in the file querysupportstruct.h.
 
-All the data sets we use can be downloaded from the below website:  
+All the data sets we use can be downloaded from the below website (In the "data" directory, we also upload a small test dataset sample "lkml" due to the size limitation of the project uploaded):  
 ```
     https://catalog.caida.org/details/dataset/passive_2015_pcap  
     https://networkrepository.com  
@@ -19,8 +21,8 @@ The data sets should be preprocessed to the format as below:
 * rawdata.txt -- The adjacency matrix of the network in whitespace-separated values format, with one edge per line  
     The meaning of the columns are:  
     ```
-        First column: ID of from node  
-        Second column: ID of to node  
+        First column: ID of source node  
+        Second column: ID of destination node  
         Third column: edge weight  
         Fourth column: timestamp of the edge  
      ```
@@ -28,8 +30,8 @@ The data sets should be preprocessed to the format as below:
 * edgeQueryTest.txt -- Test data for edge query
     The meaning of the columns are:
     ```
-        First column: ID of from node  
-        First column: ID of to node  
+        First column: ID of source node  
+        First column: ID of destination node  
         Third column: Accumulated weight of the edge  
     ```
 
@@ -37,16 +39,15 @@ The data sets should be preprocessed to the format as below:
 * nodeOutQueryTest.txt & nodeInQueryTest.txt -- Test data for node out (in)-flow query
     The meaning of the columns are:  
     ```
-        First column: ID of from (to) node  
+        First column: ID of source (destination) node  
         Second column: Accumulated weight of the node  
     ```
 
 ## How to run
 
-Suppose you've already cloned the repository and preprocessed the data set into the format above.  
+Suppose you've already cloned the repository.  
 You just need:
 ```
-    $ cd sourceCode  
+    $ cd code  
     $ make  
     $ ./main  
-```
