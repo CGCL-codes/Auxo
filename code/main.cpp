@@ -47,8 +47,8 @@ int main()
     cout<<"The over all throughput of compacted Auxo: "<<num/(ComMatrixTime/1e6)<<"/s\n";
     cout<<"The over all throughput of GSS_Chain: "<<num/(GSSMatrixTime/1e6)<<"/s\n";
     cout<<"\n-----------------------------------------------------------------------------------\n\n";
-    cout<<"The consumed memory of fingerprints for Auxo: "<<(double)(auxo->memoryAllocated2)/131672<<" M\n";
-    cout<<"The consumed memory of fingerprints for compacted Auxo: "<<(double)(comauxo->memoryAllocated2)/131672<<" M\n";
-    cout<<"The consumed memory of fingerprints for GSS_Chain: "<<(double)(gsschain->memoryAllocated2)/131672<<" M\n";
+    cout<<"The consumed memory of fingerprints for Auxo: "<<(double)(auxo->memoryAllocated2)/131072<<" M\n";
+    cout<<"The consumed memory of fingerprints for compacted Auxo: "<<(double)(comauxo->memoryAllocated2)/131072<<" M\n";
+    cout<<"The consumed memory of fingerprints for GSS_Chain: "<<(double)(gsschain->memoryAllocated2)/131072<<" M\n";
     return 0;
 }
