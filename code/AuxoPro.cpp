@@ -1,7 +1,7 @@
 #include "querysupportstruct.h"
 using namespace std;
 
-ComAuxo::ComAuxo(int width, int range, int p_num, int f_num)
+AuxoPro::AuxoPro(int width, int range, int p_num, int f_num)
 {
     checkMatrices=vector<basketNode*>(1500);
     posfind=vector<int>(1500);
@@ -33,14 +33,14 @@ ComAuxo::ComAuxo(int width, int range, int p_num, int f_num)
 	deputyTree=new basketNode();
 
 }
-void ComAuxo::freeValueTree(basketNode* root){
+void AuxoPro::freeValueTree(basketNode* root){
     if(root){
         freeValueTree(root->next[0]);
         freeValueTree(root->next[1]);
         delete root;
     }
 }
-Gbasket* ComAuxo::initialGbasket(int fsize1,int fsize2){
+Gbasket* AuxoPro::initialGbasket(int fsize1,int fsize2){
     weightSize *weight=new weightSize[matrixSize];
     memset(weight,0,sizeof(weightSize)*matrixSize);
     memoryAllocated1+=matrixSize*sizeof(weightSize)/8;
@@ -69,7 +69,7 @@ Gbasket* ComAuxo::initialGbasket(int fsize1,int fsize2){
 
     return res;
 }
-basketNode* ComAuxo::getDeputyBasketNode(unsigned int srcFig,unsigned int dstFig,int& resLevel){
+basketNode* AuxoPro::getDeputyBasketNode(unsigned int srcFig,unsigned int dstFig,int& resLevel){
     basketNode *res=deputyTree,*helper=NULL;
     resLevel=-1;
     int level=0;
@@ -93,7 +93,7 @@ basketNode* ComAuxo::getDeputyBasketNode(unsigned int srcFig,unsigned int dstFig
     }
     return helper;
 }
-void ComAuxo::MatrixAppend(basketNode* basketCurr,int& level){
+void AuxoPro::MatrixAppend(basketNode* basketCurr,int& level){
     valueCou+=1;
     loadFactor+=(double)basketCurr->bound/matrixSize;
     fullCount+=1;
@@ -211,7 +211,7 @@ void ComAuxo::MatrixAppend(basketNode* basketCurr,int& level){
 }
 
 
-int ComAuxo::insert(string s1, string s2,int weight,double& insertMatrix)// s1 is the ID of the source node, s2 is the ID of the destination node, weight is the edge weight.
+int AuxoPro::insert(string s1, string s2,int weight,double& insertMatrix)// s1 is the ID of the source node, s2 is the ID of the destination node, weight is the edge weight.
 {
         int res;
         timeval t_start, t_end;
@@ -518,7 +518,7 @@ int ComAuxo::insert(string s1, string s2,int weight,double& insertMatrix)// s1 i
 	    return res;
 }
 
-int ComAuxo::edgeQuery(string s1, string s2,double& queryMatrix)// s1 is the ID of the source node, s2 is the ID of the destination node, return the weight of the edge
+int AuxoPro::edgeQuery(string s1, string s2,double& queryMatrix)// s1 is the ID of the source node, s2 is the ID of the destination node, return the weight of the edge
 {
     int res=0;
     timeval t_start, t_end;
@@ -651,7 +651,7 @@ int ComAuxo::edgeQuery(string s1, string s2,double& queryMatrix)// s1 is the ID 
     return res;
 }
 /*type 0 is for successor query, type 1 is for preccessor query*/
-void ComAuxo::getMainNodeValue(basketNode* basketCurr,int level, ul g1,
+void AuxoPro::getMainNodeValue(basketNode* basketCurr,int level, ul g1,
                             bool type,int& cnt){
     if(!basketCurr)return;
 
@@ -672,7 +672,7 @@ void ComAuxo::getMainNodeValue(basketNode* basketCurr,int level, ul g1,
     return;
 }
 
-int ComAuxo::nodeValueQuery(string s1, int type, double& queryMatrix) // s1 is the ID of the queried node, function for node query.
+int AuxoPro::nodeValueQuery(string s1, int type, double& queryMatrix) // s1 is the ID of the queried node, function for node query.
 {
     timeval t_start, t_end;
     gettimeofday( &t_start, NULL);
@@ -775,7 +775,7 @@ int ComAuxo::nodeValueQuery(string s1, int type, double& queryMatrix) // s1 is t
 	delete []poses;
 	return weight;
 }
-void ComAuxo::sucessorQuery(basketNode* basketCurr,int level,unsigned int *poses, ul g1,vector<ul>& neis,ul prefix,int preLen,bool type){
+void AuxoPro::sucessorQuery(basketNode* basketCurr,int level,unsigned int *poses, ul g1,vector<ul>& neis,ul prefix,int preLen,bool type){
     //cout<<level<<endl;
     if(!basketCurr)return;
 
@@ -859,7 +859,7 @@ void ComAuxo::sucessorQuery(basketNode* basketCurr,int level,unsigned int *poses
         sucessorQuery(basketCurr->next[1],level+1,poses,g1,neis,prefix|(0x1<<preLen),preLen+1,type);
     }
 }
-void ComAuxo::nodeSuccessorQuery(string s1, vector<ul> &neis){
+void AuxoPro::nodeSuccessorQuery(string s1, vector<ul> &neis){
     ul hash1 = mpq->MPQHash(s1.c_str(), Type);
     ul g1 = hash1 & fvalue[f];
     if(g1==0) g1+=1;
@@ -891,7 +891,7 @@ void ComAuxo::nodeSuccessorQuery(string s1, vector<ul> &neis){
     return ;
 }
 
-bool ComAuxo::reachQuery(string s1,string s2,double &queryTime){
+bool AuxoPro::reachQuery(string s1,string s2,double &queryTime){
     if(s1==s2)return true;
     timeval t_start, t_end;
     gettimeofday( &t_start, NULL);
@@ -1010,7 +1010,7 @@ bool ComAuxo::reachQuery(string s1,string s2,double &queryTime){
     return false;
 }
 
-void ComAuxo::findAllEdgeForTriangle(GSketch* gs,ul preLen1,ul preLen2,ul prefix1, ul prefix2, int level,basketNode* basketCurr){
+void AuxoPro::findAllEdgeForTriangle(GSketch* gs,ul preLen1,ul preLen2,ul prefix1, ul prefix2, int level,basketNode* basketCurr){
     if(!basketCurr)return;
 
     int srcFigSize=f-(level>>1),dstFigSize=f-(level>>1)-(level&0x1);
@@ -1067,7 +1067,7 @@ void ComAuxo::findAllEdgeForTriangle(GSketch* gs,ul preLen1,ul preLen2,ul prefix
 }
 
 
-int ComAuxo::triangleCounting()
+int AuxoPro::triangleCounting()
 {
     int res;
 	GSketch* gs = new GSketch;

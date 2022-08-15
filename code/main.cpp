@@ -14,7 +14,7 @@ int main()
     char nodeIn[100]="../data/lkml/nodeInQueryTest.txt";
     char edge[100]="../data/lkml/edgeQueryTest.txt";
     Auxo *auxo=new Auxo(126,16,80,15);//side width of the matrix, length of the hash address, number of the candidate bucket, length of the fingerprint
-    ComAuxo *comauxo=new ComAuxo(126,16,80,15);
+    AuxoPro *auxopro=new AuxoPro(126,16,80,15);
     GSS_Chain *gsschain=new GSS_Chain(126,16,80,15);
     int num=0;
     FILE *fp;
@@ -39,7 +39,7 @@ int main()
         from<<temp1;to<<temp2;
 
         auxo->insert(from.str(),to.str(),weight,AuxoMatrixTime);
-        comauxo->insert(from.str(),to.str(),weight,ComMatrixTime);
+        auxopro->insert(from.str(),to.str(),weight,ComMatrixTime);
         gsschain->insert(from.str(),to.str(),weight,GSSMatrixTime);
         num++;
     }
@@ -48,7 +48,7 @@ int main()
     cout<<"The over all throughput of GSS_Chain: "<<num/(GSSMatrixTime/1e6)<<"/s\n";
     cout<<"\n-----------------------------------------------------------------------------------\n\n";
     cout<<"The consumed memory of fingerprints for Auxo: "<<(double)(auxo->memoryAllocated2)/131072<<" M\n";
-    cout<<"The consumed memory of fingerprints for compacted Auxo: "<<(double)(comauxo->memoryAllocated2)/131072<<" M\n";
+    cout<<"The consumed memory of fingerprints for compacted Auxo: "<<(double)(auxopro->memoryAllocated2)/131072<<" M\n";
     cout<<"The consumed memory of fingerprints for GSS_Chain: "<<(double)(gsschain->memoryAllocated2)/131072<<" M\n";
     return 0;
 }

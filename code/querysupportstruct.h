@@ -261,7 +261,7 @@ private:
 
 };
 
-class ComAuxo
+class AuxoPro
 {
 private:
 	int w;
@@ -290,8 +290,8 @@ private:
 	    double insertNum;
 	    ul matrixSize;
 	    int cnt;
-		ComAuxo(int width, int range, int p_num, int f_num);
-		~ComAuxo()
+		AuxoPro(int width, int range, int p_num, int f_num);
+		~AuxoPro()
 		{
 			freeValueTree(mainTree);
 			freeValueTree(deputyTree);
