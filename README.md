@@ -51,7 +51,9 @@ You just need:
     $ cd code  
     $ make  
     $ ./main
+    
+```
 
 ## Other related work
 
-We also collect other related work of graph stream summarization strutures like Horae, Scube, MoSSo, SGS, GS4 and their codes are in the "baseline" directory.   
+We also collect other related work of graph stream summarization strutures to compare and put their code in the "baseline" directory.   
