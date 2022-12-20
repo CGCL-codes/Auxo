@@ -8,7 +8,7 @@ To address this issue, we propose a novel prefix embedded tree (PET) which lever
 
 ## About the source code and data sets
 
-We have implemented the basic idea GSS_Chain (GSS_Chain.cpp), Auxo (Auxo.cpp), and proportional Auxo (AuxoPro.cpp) in C++. We complete the code on Linux 5.4.0-99-generic and compile successfully using gcc 7.5.0. The hash function we use is in the file querysupportstruct.h.
+We have implemented the basic idea GSS_Chain (GSS_Chain.cpp), Auxo (Auxo.cpp), and proportional Auxo (AuxoPro.cpp) in C++. The source code is in the "Auxo" directory. We complete the code on Linux 5.4.0-99-generic and compile successfully using gcc 11.3.0.
 
 All the data sets we use can be downloaded from the below website (In the "data" directory, we also upload a small test dataset sample "lkml" due to the size limitation of the project uploaded):  
 ```
@@ -48,7 +48,7 @@ The data sets should be preprocessed to the format as below:
 Suppose you've already cloned the repository.  
 You just need:
 ```
-    $ cd code  
+    $ cd Auxo  
     $ make  
     $ ./main
     
