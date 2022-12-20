@@ -54,4 +54,4 @@ You just need:
 
 ## Other related work
 
-We also collect other related work of graph stream summarization strutures like Horae, Scube, MoSSo, SGS, GS4 and their codes are in the corresponding directory.   
+We also collect other related work of graph stream summarization strutures like Horae, Scube, MoSSo, SGS, GS4 and their codes are in the "baseline" directory.   
