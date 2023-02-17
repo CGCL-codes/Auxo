@@ -1,9 +1,23 @@
 # Auxo: A Scalable and Efficient Graph Stream Summarization Structure
+
+Auxo is a scalable graph stream summarization structure with high efficiency. Auxo leverages binary logarithmic search and common binary prefixes embedding to provide a space/time efficient scalable tree structure, reducing the item insert/query time from $O(N)$ to $O(logN)$ as well as reducing the total storage cost in a $logN$ scale.
+
 ## Introduction
 
-A graph stream refers to a time sequentially updating stream of edges, forming a huge and fast-evolving graph. The vast volume and high update speed of a graph stream bring stringent requirements for the data management structure, including sublinear space cost, constant time cost for updating, and scalability of the structure. Existing designs summarize a graph stream by leveraging a hash-based compressed matrix and representing an edge using its fingerprint to achieve practical storage for a graph stream with a known upper bound of data volume. However, they fail to support the dynamically extending of a graph stream.
+A graph stream refers to a time sequentially updating stream of edges, forming a huge and fast-evolving graph. The vast volume and high update speed of a graph stream bring stringent requirements for the data management structure, including sublinear space cost, constant time cost for updating, and scalability of the structure. Existing designs summarize a graph stream by leveraging a hash-based compressed matrix and representing an edge using its fingerprint to achieve practical storage for a graph stream with a known upper bound of data volume. However, they fail to support the dynamically extending of a graph stream.  
 
-To address this issue, we propose a novel prefix embedded tree (PET) which leverages binary logarithmic search and common binary prefixes embedding to provide a space/time efficient scalable tree structure. PET reduces the item insert/query time from $O(N)$ to $O(logN)$ as well as reducing the total storage cost in a $logN$ scale, where $N$ is the scale of the dataset. To further improve the memory utilization of PET during scaling, we further propose a proportionally incremental strategy. Based on the PET and proportionally incremental strategy, we propose Auxo and proportional Auxo. We conduct comprehensive experiments on large-scale real-world datasets to evaluate the performance of this design. Results show that Auxo significantly reduces the insert and query time by one to two orders of magnitude compared to existing designs. Meanwhile, Auxo achieves efficiently and economically structure-scaling.  
+Existing graph stream summarizations represent the original graph stream with a hash-based compressed matrix and denote the items using their Boolean labels, achieving an approximate and practical storage scheme with sublinear memory cost. Howeer, their size-predefined compressed structures do not scale facing real-world graph streams where edges arrive continuously with unknown bounds.
+
+To address this issue, we propose a novel prefix embedded tree (PET) which leverages binary logarithmic search and common binary prefixes embedding to provide a space/time efficient scalable tree structure. PET reduces the item insert/query time from $O(|E|)$ to $O(log|E|)$ as well as reducing the total storage cost in a $log|E|$ scale, where $|E|$ is the scale of the dataset. To further improve the memory utilization of PET during scaling, we further propose a proportionally incremental strategy. Based on the PET and proportionally incremental strategy, we propose Auxo and proportional Auxo.
+
+Specifically, Two factors contribute to the efficiency of Auxo. First, Auxo proposes a novel prefix embedded tree (PET) which extends new building blocks in a tree-style to achieve logarithmic computation cost for insert/query processing. Moreover, PET embeds the prefix information inside the tree. Thus, in all the extended building blocks on the 𝑖th level of the tree, Auxo can omit an 𝑖-bit prefix for every inserted fingerprint without sacrificing query accuracy.
+
+[## Insight of PET]{https://github.com/CGCL-codes/Auxo/blob/main/imgs/insight.png}
+
+Second, to improve the memory utilization of PET, we propose a proportionally incremental strategy to expand PET by exploiting the principle of proportional sequence. Our proposed incremental expanding scheme decomposes the exponentially expanding of a new level into a proportionally incremental sequence, avoiding the under-utilization of memory.
+
+[## Proportional incremental strategy]{https://github.com/CGCL-codes/Auxo/blob/main/imgs/Auxo_pro.png}
+
 
 
 ## About the source code and data sets
