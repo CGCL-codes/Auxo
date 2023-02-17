@@ -1,4 +1,4 @@
-# Auxo: A Time and Memory Efficient Structure for Scalable Graph Stream Summarization
+# Auxo: A Scalable and Efficient Graph Stream Summarization Structure
 ## Introduction
 
 A graph stream refers to a time sequentially updating stream of edges, forming a huge and fast-evolving graph. The vast volume and high update speed of a graph stream bring stringent requirements for the data management structure, including sublinear space cost, constant time cost for updating, and scalability of the structure. Existing designs summarize a graph stream by leveraging a hash-based compressed matrix and representing an edge using its fingerprint to achieve practical storage for a graph stream with a known upper bound of data volume. However, they fail to support the dynamically extending of a graph stream.
@@ -57,3 +57,19 @@ You just need:
 ## Other related work
 
 We also collect other related work of graph stream summarization strutures to compare and put their code in the "baseline" directory.   
+
+## Other related work
+
+We also collect other related work of graph stream summarization strutures to compare and put their code in the "baseline" directory. 
+
+##Publication
+
+If you want to know more detailed information, please refer to this paper:
+
+Zhiguo Jiang, Hanhua Chen, Hai Jin. Auxo: A Scalable and Efficient Graph Stream Summarization Structure. In Proceedings of the 49th International Conference on Very Large Data Bases (VLDB 2023), Vancouver, Canada, August 28 to September 1, 2023.
+
+##Authors and Copyright
+
+Auxo is developed in National Engineering Research Center for Big Data Technology and System, Cluster and Grid Computing Lab, Services Computing Technology and System Lab, School of Computer Science and Technology, Huazhong University of Science and Technology, Wuhan, China by Zhiguo Jiang (jiangzg@hust.edu.cn), Hanhua Chen (chen@hust.edu.cn), Hai Jin (hjin@hust.edu.cn).
+
+Copyright (C) 2020, [STCS & CGCL](http://grid.hust.edu.cn/) and [Huazhong University of Science and Technology](https://www.hust.edu.cn/).
