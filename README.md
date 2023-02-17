@@ -12,11 +12,11 @@ To address this issue, we propose a novel prefix embedded tree (PET) which lever
 
 Specifically, Two factors contribute to the efficiency of Auxo. First, Auxo proposes a novel prefix embedded tree (PET) which extends new building blocks in a tree-style to achieve logarithmic computation cost for insert/query processing. Moreover, PET embeds the prefix information inside the tree. Thus, in all the extended building blocks on the 𝑖th level of the tree, Auxo can omit an 𝑖-bit prefix for every inserted fingerprint without sacrificing query accuracy.
 
-## ![Insight of PET]{https://github.com/CGCL-codes/Auxo/blob/main/imgs/insight.png}
+## ![Insight of PET](https://github.com/CGCL-codes/Auxo/blob/main/imgs/insight.png)
 
 Second, to improve the memory utilization of PET, we propose a proportionally incremental strategy to expand PET by exploiting the principle of proportional sequence. Our proposed incremental expanding scheme decomposes the exponentially expanding of a new level into a proportionally incremental sequence, avoiding the under-utilization of memory.
 
-## ![Proportional incremental strategy]{https://github.com/CGCL-codes/Auxo/blob/main/imgs/Auxo_pro.png}
+## ![Proportional incremental strategy](https://github.com/CGCL-codes/Auxo/blob/main/imgs/Auxo_pro.png)
 
 
 
