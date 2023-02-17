@@ -62,13 +62,13 @@ We also collect other related work of graph stream summarization strutures to co
 
 We also collect other related work of graph stream summarization strutures to compare and put their code in the "baseline" directory. 
 
-##Publication
+## Publication
 
 If you want to know more detailed information, please refer to this paper:
 
 Zhiguo Jiang, Hanhua Chen, Hai Jin. Auxo: A Scalable and Efficient Graph Stream Summarization Structure. In Proceedings of the 49th International Conference on Very Large Data Bases (VLDB 2023), Vancouver, Canada, August 28 to September 1, 2023.
 
-##Authors and Copyright
+## Authors and Copyright
 
 Auxo is developed in National Engineering Research Center for Big Data Technology and System, Cluster and Grid Computing Lab, Services Computing Technology and System Lab, School of Computer Science and Technology, Huazhong University of Science and Technology, Wuhan, China by Zhiguo Jiang (jiangzg@hust.edu.cn), Hanhua Chen (chen@hust.edu.cn), Hai Jin (hjin@hust.edu.cn).
 
