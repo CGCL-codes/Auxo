@@ -8,15 +8,16 @@ A graph stream refers to a time sequentially updating stream of edges, forming a
 
 Existing graph stream summarizations represent the original graph stream with a hash-based compressed matrix and denote the items using their Boolean labels, achieving an approximate and practical storage scheme with sublinear memory cost. Howeer, their size-predefined compressed structures do not scale facing real-world graph streams where edges arrive continuously with unknown bounds.
 
-To address this issue, we propose a novel prefix embedded tree (PET) which leverages binary logarithmic search and common binary prefixes embedding to provide a space/time efficient scalable tree structure. PET reduces the item insert/query time from $O(|E|)$ to $O(log|E|)$ as well as reducing the total storage cost in a $log|E|$ scale, where $|E|$ is the scale of the dataset. To further improve the memory utilization of PET during scaling, we further propose a proportionally incremental strategy. Based on the PET and proportionally incremental strategy, we propose Auxo and proportional Auxo.
+To address this issue, we propose Auxo whihc is based on a novel prefix embedded tree (PET), leveraging binary logarithmic search and common binary prefixes embedding to provide a space/time efficient scalable tree structure. PET reduces the item insert/query time from $O(|E|)$ to $O(log|E|)$ as well as reducing the total storage cost in a $log|E|$ scale, where $|E|$ is the scale of the dataset.
 
-Specifically, Two factors contribute to the efficiency of Auxo. First, Auxo proposes a novel prefix embedded tree (PET) which extends new building blocks in a tree-style to achieve logarithmic computation cost for insert/query processing. Moreover, PET embeds the prefix information inside the tree. Thus, in all the extended building blocks on the 𝑖th level of the tree, Auxo can omit an 𝑖-bit prefix for every inserted fingerprint without sacrificing query accuracy.
+Below shows our inisght of PET structure. PET extends new building blocks in a tree-style to achieve logarithmic computation cost for insert/query processing. Moreover, PET embeds the prefix information inside the tree. Thus, in all the extended building blocks on the 𝑖th level of the tree, Auxo can omit an 𝑖-bit prefix for every inserted fingerprint without sacrificing query accuracy.
 
-## ![Insight of PET](https://github.com/CGCL-codes/Auxo/blob/main/imgs/insight.png)
+## Insight of PET
+### ![Insight of PET](https://github.com/CGCL-codes/Auxo/blob/main/imgs/insight.png)
 
-Second, to improve the memory utilization of PET, we propose a proportionally incremental strategy to expand PET by exploiting the principle of proportional sequence. Our proposed incremental expanding scheme decomposes the exponentially expanding of a new level into a proportionally incremental sequence, avoiding the under-utilization of memory.
-
-## ![Proportional incremental strategy](https://github.com/CGCL-codes/Auxo/blob/main/imgs/Auxo_pro.png)
+To further improve the memory utilization of PET, we propose a proportionally incremental strategy to expand PET by exploiting the principle of proportional sequence. Our proposed incremental expanding scheme decomposes the exponentially expanding of a new level into a proportionally incremental sequence, avoiding the under-utilization of memory. Below is an example of our proportional incremental strategy. Every time when the Main tree(a PET) extends to the next level, it constructs a Deputy tree to do this in a level-by-level way. Whenever Deputy tree extends, it moves the edge stored in the current level to the newest level.
+## Proportional incremental strategy
+### ![Proportional incremental strategy](https://github.com/CGCL-codes/Auxo/blob/main/imgs/Auxo_pro.png)
 
 
 
