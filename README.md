@@ -92,10 +92,10 @@ We also compare Auxo with other scalable graph stream summarization structures l
 compared to other structures.
 
 <div align=center>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/throughput.png" width="200" height="150" alt="Proportional incremental strategy"/>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/memory_uti.png" width="200" height="150" alt="Proportional incremental strategy"/>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/insert_s.png" width="200" height="150" alt="Proportional incremental strategy"/>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/memory_s.png" width="200" height="150" alt="Proportional incremental strategy"/><br/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/throughput.png" width="220" height="165" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/memory_uti.png" width="220" height="165" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/insert_s.png" width="220" height="165" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/memory_s.png" width="220" height="165" alt="Proportional incremental strategy"/><br/>
 </div> 
 
 
