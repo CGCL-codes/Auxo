@@ -27,12 +27,11 @@ To further improve the memory utilization of PET, we propose a proportionally in
 
 We have implemented the basic idea GSS_Chain (GSS_Chain.cpp), Auxo (Auxo.cpp), and proportional Auxo (AuxoPro.cpp) in C++. The source code is in the "Auxo" directory. We complete the code on Linux 5.4.0-99-generic and compile successfully using gcc 11.3.0.
 
-All the data sets we use can be downloaded from the below website (In the "data" directory, we also upload a small test dataset demo "lkml" wiht only several millions of edges due to the size limitation of the project uploaded.):  
+All the data sets we use can be downloaded from the below website (In the "data" directory, we also upload a small test dataset demo "lkml" wiht only several millions of edges due to the size limitation of the project uploaded. We recommend you to evaluate the performance of Auxo on much larger dataset!!!!!!):  
 ```
     https://catalog.caida.org/details/dataset/passive_2015_pcap  
     http://konect.cc/networks/
 ```
-## We recommend you to evaluate the performance of Auxo on much larger dataset!!!
 
 The data sets should be preprocessed to the format as below:  
 * rawdata.txt -- The adjacency matrix of the network in whitespace-separated values format, with one edge per line  
@@ -61,16 +60,26 @@ The data sets should be preprocessed to the format as below:
     ```
 
 ## How to run
-
+### Run the demo
 Suppose you've already cloned the repository.  
 You just need:
 ```
-    $ cd Auxo  
-    $ make  
-    $ ./main
+    $ cd Auxo/build  
+    $ cmake .. && make
+    $ cd ../bin && ./main (or cd ../ && sh demo.sh)
     
 ```
+### Parameter setting
 
+```
+    $ -dataset path of the graph stream dataset
+    $ -result output result path
+    $ -fpl length of the fingerprint
+    $ -width side with of the compressed matrix
+    $ -cols length of the hash address sequence
+    $ candiNum  number of the canidate buckets
+```
+A demo of the parameter setting could be find in file demo.sh
 ## Other related work
 
 We also collect other related work of graph stream summarization strutures to compare and put their code in the "baseline" directory. 
