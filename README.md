@@ -8,7 +8,7 @@ A graph stream refers to a time sequentially updating stream of edges, forming a
 
 Existing graph stream summarizations represent the original graph stream with a hash-based compressed matrix and denote the items using their Boolean labels, achieving an approximate and practical storage scheme with sublinear memory cost. Howeer, their size-predefined compressed structures do not scale facing real-world graph streams where edges arrive continuously with unknown bounds.
 
-To address this issue, we propose Auxo whihc is based on a novel prefix embedded tree (PET), leveraging binary logarithmic search and common binary prefixes embedding to provide a space/time efficient scalable tree structure. PET reduces the item insert/query time from $O(|E|)$ to $O(log|E|)$ as well as reducing the total storage cost in a $log|E|$ scale, where $|E|$ is the scale of the dataset.
+To address this issue, we propose Auxo which is based on a novel prefix embedded tree (PET), leveraging binary logarithmic search and common binary prefixes embedding to provide a space/time efficient scalable tree structure. PET reduces the item insert/query time from $O(|E|)$ to $O(log|E|)$ as well as reducing the total storage cost in a $log|E|$ scale, where $|E|$ is the scale of the dataset.
 
 Below shows our inisght of PET structure. PET extends new building blocks in a tree-style to achieve logarithmic computation cost for insert/query processing. Moreover, PET embeds the prefix information inside the tree. Thus, in all the extended building blocks on the 𝑖th level of the tree, Auxo can omit an 𝑖-bit prefix for every inserted fingerprint without sacrificing query accuracy.
 
@@ -30,8 +30,7 @@ We have implemented the basic idea GSS_Chain (GSS_Chain.cpp), Auxo (Auxo.cpp), a
 All the data sets we use can be downloaded from the below website (In the "data" directory, we also upload a small test dataset sample "lkml" due to the size limitation of the project uploaded):  
 ```
     https://catalog.caida.org/details/dataset/passive_2015_pcap  
-    https://networkrepository.com  
-    http://dl.acm.org/citation.cfm?id=2488173
+    http://konect.cc/networks/
 ```
 
 The data sets should be preprocessed to the format as below:  
@@ -73,7 +72,12 @@ You just need:
 
 ## Other related work
 
-We also collect other related work of graph stream summarization strutures to compare and put their code in the "baseline" directory.   
+We also collect other related work of graph stream summarization strutures to compare and put their code in the "baseline" directory. 
+
+## Evaluation Result
+
+Here, we show the result on data set Friendster. This is the friendship network of the online social site Friendster, where nodes represent users and a directed
+edge denotes that a user adds another user to his or her friend list. The dataset contains 68 million nodes and 2.6 billion edges.
 
 
 ## Publication
