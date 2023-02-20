@@ -27,7 +27,7 @@ To further improve the memory utilization of PET, we propose a proportionally in
 
 We have implemented the basic idea GSS_Chain (GSS_Chain.cpp), Auxo (Auxo.cpp), and proportional Auxo (AuxoPro.cpp) in C++. The source code is in the "Auxo" directory. We complete the code on Linux 5.4.0-99-generic and compile successfully using gcc 11.3.0.
 
-All the data sets we use can be downloaded from the below website (In the "data" directory, we also upload a small test dataset demo "lkml" wiht only several millions of edges due to the size limitation of the project uploaded. We recommend you to evaluate the performance of Auxo on much larger dataset!!!!!!):  
+All the data sets we use can be downloaded from the below website (In the "data" directory, we also upload a small test dataset demo "lkml" wiht only several millions of edges due to the size limitation of the project uploaded. We recommend you to evaluate the performance of Auxo on much larger datasets!!!!!!):  
 ```
     https://catalog.caida.org/details/dataset/passive_2015_pcap  
     http://konect.cc/networks/
