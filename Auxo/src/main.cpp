@@ -1,4 +1,3 @@
-#include <iostream>
 #include "querysupportstruct.h"
 #include <fstream>
 #include <string>
@@ -7,48 +6,74 @@
 #include <math.h>
 #include <set>
 using namespace std;
-int main()
+int main(int argc, char* argv[])
 {
-    char data[100]="../data/lkml/rawdata.txt";
-    char nodeOut[100]="../data/lkml/nodeOutQueryTest.txt";
-    char nodeIn[100]="../data/lkml/nodeInQueryTest.txt";
-    char edge[100]="../data/lkml/edgeQueryTest.txt";
-    Auxo *auxo=new Auxo(126,16,80,15);//side width of the matrix, length of the hash address, number of the candidate bucket, length of the fingerprint
-    AuxoPro *auxopro=new AuxoPro(126,16,80,15);
-    GSS_Chain *gsschain=new GSS_Chain(126,16,80,15);
-    int num=0;
-    FILE *fp;
-    fp = fopen(data, "r");
-    if(fp == NULL)
-    {
-        printf("cannot open file1!\n");
-        return -1;
+    string dataset="../../data/lkml/rawdata.txt";
+    string nodeOut="../../data/lkml/nodeOutQueryTest.txt";
+    string nodeIn="../../data/lkml/nodeInQueryTest.txt";
+    string edge="../../data/lkml/edgeQueryTest.txt";
+    string result="../result/lkml.txt";
+
+    int fpl=16,cols=4,candiNum=16,width=100;
+
+    for (int i = 0; i < argc; i++) {
+		if (strcmp(argv[i], "-dataset") == 0) {
+			dataset = argv[++i];
+		}
+		if (strcmp(argv[i], "-result") == 0) {
+			result = argv[++i];
+		}
+		if (strcmp(argv[i], "-fpl") == 0) {
+			fpl = atoi(argv[++i]);
+		}
+		if (strcmp(argv[i], "-width") == 0) {
+			width = atoi(argv[++i]);
+		}
+		if (strcmp(argv[i], "-cols") == 0) {
+			cols = atoi(argv[++i]);
+		}
+		if (strcmp(argv[i], "-candiNum") == 0) {
+			candiNum = atoi(argv[++i]);
+		}
     }
+    cout<<"The parameters are shown as below:\n"<<"dataset: "<<dataset<<" result: "<<result<<" cols: "<<cols<<" candiNum: "<<candiNum<<" fpl: "<<fpl<<endl;
+
+    Auxo *auxo=new Auxo(width,cols,candiNum,fpl);//side width of the matrix, length of the hash address, number of the candidate bucket, length of the fingerprint
+    AuxoPro *auxopro=new AuxoPro(width,cols,candiNum,fpl);
+    GSS_Chain *gsschain=new GSS_Chain(width,cols,candiNum,fpl);
+    int num=0;
+
+    ofstream out1(result);
+
+    ifstream ifs;
+    ifs.open(dataset);
+	if (!ifs.is_open()) {
+		cout << "Error in open file, Path = " << dataset << endl;
+		return -1;
+	}
+
+	int64_t s, d;
+    int w;
+    unsigned int t;
     double AuxoMatrixTime=0,
            ComMatrixTime=0,
            GSSMatrixTime=0;
     cout<<"Insertion starts\n";
-    while(!feof(fp))
+    while(!ifs.eof())
     {
-        unsigned int temp1,temp2,weight,timeStamp;
-        fscanf(fp, "%d ", &temp1);
-        fscanf(fp, "%d ", &temp2);
-        fscanf(fp, "%d ", &weight);
-        fscanf(fp, "%d", &timeStamp);
-        ostringstream from,to;
-        from<<temp1;to<<temp2;
+        ifs >> s >> d >> w >> t;
 
-        auxo->insert(from.str(),to.str(),weight,AuxoMatrixTime);
-        auxopro->insert(from.str(),to.str(),weight,ComMatrixTime);
-        gsschain->insert(from.str(),to.str(),weight,GSSMatrixTime);
+        auxo->insert(to_string(s), to_string(d),w,AuxoMatrixTime);
+        auxopro->insert(to_string(s), to_string(d),w,ComMatrixTime);
+        gsschain->insert(to_string(s), to_string(d),w,GSSMatrixTime);
         num++;
     }
-    cout<<"The over all throughput of Auxo: "<<num/(AuxoMatrixTime/1e6)<<"/s\n";
-    cout<<"The over all throughput of compacted Auxo: "<<num/(ComMatrixTime/1e6)<<"/s\n";
-    cout<<"The over all throughput of GSS_Chain: "<<num/(GSSMatrixTime/1e6)<<"/s\n";
-    cout<<"\n-----------------------------------------------------------------------------------\n\n";
-    cout<<"The consumed memory of fingerprints for Auxo: "<<(double)(auxo->memoryAllocated2)/131072<<" M\n";
-    cout<<"The consumed memory of fingerprints for compacted Auxo: "<<(double)(auxopro->memoryAllocated2)/131072<<" M\n";
-    cout<<"The consumed memory of fingerprints for GSS_Chain: "<<(double)(gsschain->memoryAllocated2)/131072<<" M\n";
+    out1<<"The over all throughput of Auxo: "<<num/(AuxoMatrixTime/1e6)<<"/s\n";
+    out1<<"The over all throughput of proportional Auxo: "<<num/(ComMatrixTime/1e6)<<"/s\n";
+    out1<<"The over all throughput of GSS_Chain: "<<num/(GSSMatrixTime/1e6)<<"/s\n";
+    out1<<"\n-----------------------------------------------------------------------------------\n\n";
+    out1<<"The consumed memory of fingerprints for Auxo: "<<(double)(auxo->memoryAllocated2)/131072<<" M\n";
+    out1<<"The consumed memory of fingerprints for proportional Auxo: "<<(double)(auxopro->memoryAllocated2)/131072<<" M\n";
+    out1<<"The consumed memory of fingerprints for GSS_Chain: "<<(double)(gsschain->memoryAllocated2)/131072<<" M\n";
     return 0;
 }
