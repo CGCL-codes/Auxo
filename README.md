@@ -83,6 +83,14 @@ Auxo and Auxo_pro reduce the edge query time by one to two orders of magnitude f
 
 ## Evaluation result on Friendster
 <div align=center>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/memory_uti.png" width="240" height="180" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/indert_s.png" width="240" height="180" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/memory_s.png" width="240" height="180" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/nodeout_f.png" width="240" height="180" alt="Proportional incremental strategy"/><br/>
+</div>
+
+## Evaluation result on Friendster
+<div align=center>
 <img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/insert_f.png" width="240" height="180" alt="Proportional incremental strategy"/>
 <img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/edge_f.png" width="240" height="180" alt="Proportional incremental strategy"/>
 <img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/nodein_f.png" width="240" height="180" alt="Proportional incremental strategy"/>
