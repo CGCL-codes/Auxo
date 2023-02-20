@@ -64,6 +64,7 @@ The data sets should be preprocessed to the format as below:
 Suppose you've already cloned the repository.  
 You just need:
 ```
+    $ mkdir build result bin
     $ cd Auxo/build  
     $ cmake .. && make
     $ cd ../bin && ./main (or cd ../ && sh demo.sh)
