@@ -47,7 +47,7 @@ The data sets should be preprocessed to the format as below:
     The meaning of the columns are:
     ```
         First column: ID of source node  
-        First column: ID of destination node  
+        Second column: ID of destination node  
         Third column: Accumulated weight of the edge  
     ```
 
@@ -73,12 +73,12 @@ You just need:
 ### Parameter setting
 
 ```
-    $ -dataset: path of the graph stream dataset
-    $ -result: output result path
-    $ -fpl: length of the fingerprint
-    $ -width: side with of the compressed matrix
-    $ -cols: length of the hash address sequence
-    $ -candiNum:  number of the canidate buckets
+    -dataset: path of the graph stream dataset
+    -result: output result path
+    -fpl: length of the fingerprint
+    -width: side with of the compressed matrix
+    -cols: length of the hash address sequence
+    -candiNum:  number of the canidate buckets
 ```
 A demo of the parameter setting could be find in file demo.sh
 ## Other related work
