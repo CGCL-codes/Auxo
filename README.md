@@ -17,7 +17,7 @@ Below shows our inisght of PET structure. PET extends new building blocks in a t
 
 To further improve the memory utilization of PET, we propose a proportionally incremental strategy to expand PET by exploiting the principle of proportional sequence. Our proposed incremental expanding scheme decomposes the exponentially expanding of a new level into a proportionally incremental sequence, avoiding the under-utilization of memory. Below is an example of our proportional incremental strategy. Every time when the Main tree(a PET) extends to the next level, it constructs a Deputy tree to do this in a level-by-level way. Whenever Deputy tree extends, it moves the edge stored in the current level to the newest level and free the memory of the old level.
 ## Proportional incremental strategy
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/Auxo_pro.png" width="200" height="200" alt="Proportional incremental strategy"/><br/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/Auxo_pro.png" width="200" height="400" alt="Proportional incremental strategy"/><br/>
 
 ## About the source code and data sets
 
