@@ -82,20 +82,20 @@ edge denotes that a user adds another user to his or her friend list. The datase
 Auxo and Auxo_pro reduce the edge query time by one to two orders of magnitude for all the data sets compared with GSS_Chain and Scube_Chain. For node in-flow query, both Auxo and Auxo_pro outperform GSS_Chain and Scube_Chain, reducing the query time by about one order of magnitude. For node out-flow query, Auxo and Scube_Chain achieve comparable performance, both outperformance GSS_Chain.
 
 <div align=center>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/insert_f.png" width="220" height="165" alt="Proportional incremental strategy"/>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/edge_f.png" width="220" height="165" alt="Proportional incremental strategy"/>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/nodein_f.png" width="220" height="165" alt="Proportional incremental strategy"/>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/nodeout_f.png" width="220" height="165" alt="Proportional incremental strategy"/><br/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/insert_f.png" width="200" height="150" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/edge_f.png" width="200" height="150" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/nodein_f.png" width="200" height="150" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/nodeout_f.png" width="200" height="150" alt="Proportional incremental strategy"/><br/>
 </div>
 
 We also compare Auxo with other scalable graph stream summarization structures like Horae, MoSSo, SGS and the results show Horae and Auxo achieve nearly the same performance on update speed and are about two orders of magnitude faster than MoSSo and SGS. Moreover Auxo reduces the memory cost by more than one order of magnitude
 compared to other structures.
 
 <div align=center>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/throughput.png" width="220" height="165" alt="Proportional incremental strategy"/>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/memory_uti.png" width="220" height="165" alt="Proportional incremental strategy"/>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/insert_s.png" width="220" height="165" alt="Proportional incremental strategy"/>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/memory_s.png" width="220" height="165" alt="Proportional incremental strategy"/><br/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/throughput.png" width="200" height="150" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/memory_uti.png" width="200" height="150" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/insert_s.png" width="200" height="150" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/memory_s.png" width="200" height="150" alt="Proportional incremental strategy"/><br/>
 </div> 
 
 
