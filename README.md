@@ -79,6 +79,16 @@ We also collect other related work of graph stream summarization strutures to co
 Here, we show the result on data set Friendster. This is the friendship network of the online social site Friendster, where nodes represent users and a directed
 edge denotes that a user adds another user to his or her friend list. The dataset contains 68 million nodes and 2.6 billion edges.
 
+Auxo and Auxo_pro reduce the edge query time by one to two orders of magnitude for all the data sets compared with GSS_Chain and Scube_Chain. For node in-flow query, both Auxo and Auxo_pro outperform GSS_Chain and Scube_Chain, reducing the query time by about one order of magnitude. For node out-flow query, Auxo and Scube_Chain achieve comparable performance, both outperformance GSS_Chain.
+
+## Evaluation result on Friendster
+<div align=center>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/insert_f.png" width="150" height="70" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/edge_f.png" width="150" height="70" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/nodein_f.png" width="150" height="70" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/nodeout_f.png" width="150" height="70" alt="Proportional incremental strategy"/><br/>
+</div>
+
 
 ## Publication
 
