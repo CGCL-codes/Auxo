@@ -83,10 +83,10 @@ Auxo and Auxo_pro reduce the edge query time by one to two orders of magnitude f
 
 ## Evaluation result on Friendster
 <div align=center>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/insert_f.png" width="150" height="70" alt="Proportional incremental strategy"/>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/edge_f.png" width="150" height="70" alt="Proportional incremental strategy"/>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/nodein_f.png" width="150" height="70" alt="Proportional incremental strategy"/>
-<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/nodeout_f.png" width="150" height="70" alt="Proportional incremental strategy"/><br/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/insert_f.png" width="200" height="100" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/edge_f.png" width="200" height="100" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/nodein_f.png" width="200" height="100" alt="Proportional incremental strategy"/>
+<img src="https://github.com/CGCL-codes/Auxo/blob/main/imgs/nodeout_f.png" width="200" height="100" alt="Proportional incremental strategy"/><br/>
 </div>
 
 
