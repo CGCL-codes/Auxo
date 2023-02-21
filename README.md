@@ -64,8 +64,8 @@ The data sets should be preprocessed to the format as below:
 Suppose you've already cloned the repository.  
 You just need:
 ```
-    $ mkdir build result bin
-    $ cd Auxo/build  
+    $ cd Auxo && mkdir build result bin
+    $ cd build  
     $ cmake .. && make
     $ cd ../bin && ./main (or cd ../ && sh demo.sh)
     
@@ -81,6 +81,7 @@ You just need:
     -candiNum:  number of the canidate buckets
 ```
 A demo of the parameter setting could be find in file demo.sh
+
 ## Other related work
 
 We also collect other related work of graph stream summarization strutures to compare and put their code in the "baseline" directory. 
