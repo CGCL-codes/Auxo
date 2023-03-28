@@ -115,7 +115,7 @@ compared to other structures.
 
 If you want to know more detailed information, please refer to this paper:
 
-Zhiguo Jiang, Hanhua Chen, Hai Jin. Auxo: A Scalable and Efficient Graph Stream Summarization Structure. In Proceedings of the 49th International Conference on Very Large Data Bases (VLDB 2023), Vancouver, Canada, August 28 to September 1, 2023.
+[Zhiguo Jiang, Hanhua Chen, Hai Jin. Auxo: A Scalable and Efficient Graph Stream Summarization Structure. In Proceedings of the 49th International Conference on Very Large Data Bases (VLDB 2023), Vancouver, Canada, August 28 to September 1, 2023.](https://www.vldb.org/pvldb/vol16/p1386-chen.pdf)
 
 ## Authors and Copyright
 
